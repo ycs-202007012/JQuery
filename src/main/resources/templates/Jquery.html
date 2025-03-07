@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery 예제 페이지</title>
+    <!-- jQuery 라이브러리를 CDN을 통해 불러오기 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #result, #formResult { margin-top: 10px; padding: 8px; border: 1px solid #ccc; }
+        #dynamicList { margin-top: 20px; }
+        li { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+<h1>jQuery 예제 페이지</h1>
+<p>이 페이지는 jQuery의 다양한 기능을 시연하는 예제입니다.</p>
+
+<!-- 버튼 클릭 시 텍스트 변경 예제 -->
+<button id="myButton">클릭해봐!</button>
+<p id="result">여기에 결과가 나타납니다.</p>
+
+<!-- 동적 리스트 추가 예제 -->
+<h2>동적 리스트 추가하기</h2>
+<input type="text" id="newItem" placeholder="새 아이템 입력">
+<button id="addItem">아이템 추가</button>
+<ul id="dynamicList">
+    <li>예시 아이템 1</li>
+    <li>예시 아이템 2</li>
+</ul>
+
+<!-- 폼 제출 처리 예제 -->
+<h2>폼 제출 예제</h2>
+<form id="sampleForm">
+    <label for="username">이름: </label>
+    <input type="text" id="username" name="username" required>
+    <button type="submit">제출</button>
+</form>
+<p id="formResult"></p>
+
+<script>
+    $(document).ready(function(){
+      // 1. 버튼 클릭 시 텍스트 변경
+      $("#myButton").click(function(){
+        $("#result").text("버튼이 클릭되었습니다!").css('color','blue');
+      });
+
+      // 2. 동적 리스트에 새 아이템 추가
+      $("#addItem").click(function(){
+        var itemText = $("#newItem").val();
+        if(itemText.trim() !== ""){
+          $("#dynamicList").append("<li>" + itemText + "</li>");
+          $("#newItem").val(""); // 입력 필드 초기화
+        } else {
+          alert("아이템 내용을 입력해주세요.");
+        }
+      });
+
+      // 3. 폼 제출 시 이벤트 처리
+      $("#sampleForm").submit(function(event){
+        event.preventDefault(); // 폼 기본 제출 동작 막기
+        var name = $("#username").val();
+        $("#formResult").text(name + "님, 제출해주셔서 감사합니다!");
+      });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<a id="anchor" href="http://opentutorials.org">opentutorials</a>
+<ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li id="active">JavaScript</li>
+</ul>
+<input type="button" id="button" value="button"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+<!--$(document).ready(function(){
+    $('li').css("color", "red");
+});-->
+
+    var li = $('li');
+    li.map(function(index, elem){
+        console.log(index, elem);
+        $(elem).css("color","red");
+    });
+
+    var li = document.getElementById('active')
+    console.log(li.constructor.name);  // HTMLLIELEMENT
+
+    var li = document.getElementById('anchor')
+    console.log(li.constructor.name);  // HTMLANCHORElement
+
+    var li = document.getElementById('button')
+    console.log(li.constructor.name);  // HTMLINPUTElement
+</script>
+</body>
+</html>
