@@ -29,6 +29,11 @@
     <li>예시 아이템 2</li>
 </ul>
 
+<ul class="foo">
+    <li id="a">this</li>
+    <li>that</li>
+</ul>
+
 <!-- 폼 제출 처리 예제 -->
 <h2>폼 제출 예제</h2>
 <form id="sampleForm">
@@ -43,6 +48,10 @@
       // 1. 버튼 클릭 시 텍스트 변경
       $("#myButton").click(function(){
         $("#result").text("버튼이 클릭되었습니다!").css('color','blue');
+      });
+
+    $('ul.foo').click(function(){
+        $('li#a,li',this).css('color',"red");
       });
 
       // 2. 동적 리스트에 새 아이템 추가

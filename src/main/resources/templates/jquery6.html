@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery eq() 예제</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          // 예제 1: li 요소 중 인덱스 1 (두 번째 항목)을 선택하여 글자 색상을 빨간색으로 변경
+          $('li').eq(1).css('color', 'red');
+
+          // 예제 2: 버튼 클릭 시, li 요소 중 인덱스 2 (세 번째 항목)의 텍스트를 알림창으로 표시
+          $('#showThird').click(function(){
+            alert($('li').eq(2).text());
+          });
+        });
+    </script>
+</head>
+<body>
+<ul>
+    <li>첫 번째 항목</li>
+    <li>두 번째 항목</li>
+    <li>세 번째 항목</li>
+    <li>네 번째 항목</li>
+</ul>
+<button id="showThird">세 번째 항목 확인</button>
+</body>
+</html>
